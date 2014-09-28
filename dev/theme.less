@@ -1,0 +1,314 @@
+@import "variables.less";
+@import "less/mixins.less";
+@import "default.less";
+
+.img-center {
+	margin: 0 auto;
+}
+
+.btn {
+  margin-bottom: 1rem;
+}
+section {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+.gray-bg {
+    background-color: @gray-lighter;
+}
+.primary-bg {
+    background-color: @brand-primary;
+		p, span, a {
+        color: @gray-lighter;
+    }
+}
+.col-1-5 {
+    float: left;
+    width: 100%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: @screen-xs-min) {
+    .col-1-5 {
+        width: 50%;
+    }
+}
+@media (min-width: @screen-lg-min) {
+    .col-1-5 {
+        width: 20%;
+    }
+}
+
+
+#top-bar {
+  padding: 0.5rem;
+  background-color: @brand-primary;
+  //(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%)
+  //#gradient.vertical(black; white;);
+  span, a {
+    color: white;  
+  }
+  a {
+    text-decoration: underline;
+  }
+  
+}
+
+
+header {
+	margin-bottom: 2rem;
+    .nav {
+      margin-top: 2rem;
+        > li {
+            > a {
+              
+
+              padding: 2rem 0;
+							color: white;
+							
+              //#gradient.vertical-three-colors(lighten(@brand-primary, 5%); lighten(@brand-primary, 10%); 25%; @brand-primary);
+							
+              background-color: @brand-primary;
+
+              .transition(all 0.25s linear);
+
+
+              
+              .box-shadow(0px 1px 3px rgba(000,000,000,0.5), inset 0px -1px 0px rgba(255,255,255,0.7););
+							
+              text-shadow: 0px -1px 1px rgba(000,000,000,0.2), 0px 1px 0px rgba(255,255,255,0.3);
+							
+              border-radius: 12px;
+							border: 1px solid @gray-lighter;
+            	margin: 5px;
+                img {
+                    height: 10px;
+                }
+                svg {
+                    height: 20px;
+                    path, rect {
+                        fill: white;
+                    }
+                }
+            }
+            &.active, &:hover {
+            	> a { 
+
+background-color: @brand-success;                
+
+            		//#gradient.vertical-three-colors(lighten(@brand-primary, 5%); lighten(@brand-primary, 5%); 25%; darken(@brand-primary, 5%));
+            	.transition(all 0.25s linear);
+
+              }
+            }
+        }
+    }
+}
+
+// GALLERY HERE
+
+#gallery {
+    img {
+        @media(max-width: @screen-xs) {
+            width: 75px;
+        }
+        filter:gray;
+        -webkit-filter:grayscale(1);
+    }
+    img:hover {
+        filter: none;
+        -webkit-filter: grayscale(0);
+    }
+}
+
+#information {
+    background-image: url('../img/homebg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+.logos {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+        display: inline;
+        margin: 0 2% 0 0;
+        padding: 0;
+        img {
+            width: 10%;
+        }
+    }
+}
+footer {
+    background-color: @gray-dark;
+
+
+    color: @gray-lighter;
+    margin-top: 6rem;
+    padding-top: 4rem;
+    a {
+        color: @gray-lighter;
+        &:hover {
+          color: white;
+        }
+    }
+}
+
+
+
+.shadow-fold {
+  position: relative;
+  &:after {
+   // / border-top: 1px solid @gray-lighter;
+        position: absolute;
+        content: "";
+        background: url('../img/shadow.png') no-repeat center top;
+        top: 100%;
+        height: 30px;
+        left: 0;
+        right: 0;
+    }
+}
+#banner {
+	//background-color: lighten(@brand-primary, 55%);
+  #gradient.vertical(white;lighten(@brand-primary, 55%));
+}
+#carousel-main {
+  img {
+      float: right;
+    right: 0;
+    margin-right: -6rem;
+
+    @media (min-width: @screen-lg-min) {
+      margin-right: 1rem;
+    }
+  }
+  
+  .carousel-control {
+      height: 30px;
+      width: 30px;
+      font-size: 12px;
+      line-height: 2.6;
+      background-color: black;
+      top: auto;
+      bottom: 2rem;
+      &.left {
+        left: auto;
+        right: 65px;
+      }
+      &.right {
+        left: auto;
+        right: 30px;
+      }
+    }
+  .carousel-caption {
+
+    opacity: 0;
+    color: @gray-dark;
+    text-shadow: none;
+    top: 2rem;
+    right: 40%;
+    bottom: auto;
+    left: 0;
+    text-align: left;
+    .transition(all 0.25s linear);
+    h2 {
+        font-size: 2rem;
+        text-shadow: 0 0 10px white;
+      }
+      p {
+        font-size: 1rem;
+        font-weight: 300;
+        text-shadow: 0 0 10px white;
+      }
+      @media (min-width: @screen-sm-min) {
+      h2 {
+        font-size: 4rem;
+      }
+      p {
+        font-size: 1.75rem;
+        font-weight: 300;
+      }
+    }
+    @media (min-width: @screen-lg-min) {
+      right: 42%;
+      h2 {
+        font-size: 6rem;
+      }
+      p {
+        font-size: 2.5rem;
+        font-weight: 300;
+      }
+    }
+    
+  }
+  .active {
+    .carousel-caption {
+      opacity: 1;
+      top: -3rem;
+
+      @media (min-width: @screen-sm-min) {
+      top: 0rem;
+      }
+
+      @media (min-width: @screen-lg-min) {
+      top: 1rem;
+      }
+
+    }
+  }
+}
+
+
+#page-title {
+  padding-top: 4rem;
+  padding-bottom: 15px;
+  margin-bottom: 4rem;
+  border-top: 5px solid lighten(@brand-primary, 15%);
+  border-bottom: 5px solid #ccc;
+  #gradient.vertical(@brand-primary; darken(@brand-primary, 5%));
+  h1 {
+    color: white;
+
+    border-bottom: 5px solid @brand-success;
+display: inline-block;
+margin: 0 0 -25px;
+min-height: 37px;
+line-height: 46px;
+padding: 0 0 10px;
+position: relative;
+
+  }
+  .breadcrumb {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    
+    a, .active {
+      color: @gray-lighter;
+    }
+    .active {
+      font-weight: 500;
+    }
+  }
+}
+#feature {
+  .fa {
+    color: @brand-primary;
+  }
+  .icon-left {
+    margin-top: 2rem;
+  }
+}
+
+#sidebar {
+  padding: 10rem 1rem 1rem 1rem;
+  background-repeat: no-repeat;
+  color: white;
+  min-height: 800px;
+}
